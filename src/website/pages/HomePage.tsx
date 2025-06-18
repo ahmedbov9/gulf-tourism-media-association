@@ -5,7 +5,6 @@ import {
   Typography,
   Button,
   useTheme,
-  Grid,
   Card,
   Paper,
 } from '@mui/material';
@@ -72,7 +71,6 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-
       <Box>
         {/* Hero Section */}
         <Box
@@ -80,18 +78,25 @@ export default function HomePage() {
             minHeight: { xs: '80vh', md: '85vh' },
             display: 'flex',
             alignItems: 'center',
-            background: `${theme.palette.background.main}`,
+            background: theme.palette.background.default,
             position: 'relative',
           }}
         >
           <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={8}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                alignItems: 'center',
+                gap: 4,
+              }}
+            >
+              <Box sx={{ flex: 1, maxWidth: { md: '66.666667%' } }}>
                 <Typography
                   variant="h2"
                   component="h1"
                   sx={{
-                    color: `${theme.palette.text.primary}`,
+                    color: theme.palette.text.primary,
                     fontWeight: 700,
                     mb: 3,
                     fontSize: { xs: '2.5rem', md: '3.5rem' },
@@ -105,7 +110,7 @@ export default function HomePage() {
                 <Typography
                   variant="h5"
                   sx={{
-                    color: `${theme.palette.text.primary}`,
+                    color: theme.palette.text.primary,
                     mb: 4,
                     fontSize: { xs: '1.2rem', md: '1.4rem' },
                     lineHeight: 1.6,
@@ -123,15 +128,15 @@ export default function HomePage() {
                     size="large"
                     variant="contained"
                     sx={{
-                      backgroundColor: `${theme.palette.background.paper}`,
-                      color: `${theme.palette.text.primary}`,
+                      backgroundColor: theme.palette.background.paper,
+                      color: theme.palette.text.primary,
                       px: 4,
                       py: 1.5,
                       borderRadius: '8px',
                       fontSize: '1.1rem',
                       fontWeight: 600,
                       '&:hover': {
-                        backgroundColor: `${theme.palette.background.paper}`,
+                        backgroundColor: theme.palette.background.paper,
                         transform: 'translateY(-2px)',
                       },
                       transition: 'all 0.3s ease',
@@ -146,8 +151,8 @@ export default function HomePage() {
                     size="large"
                     variant="outlined"
                     sx={{
-                      color: `${theme.palette.text.primary}`,
-                      borderColor: `${theme.palette.text.primary}`,
+                      color: theme.palette.text.primary,
+                      borderColor: theme.palette.text.primary,
                       px: 4,
                       py: 1.5,
                       borderRadius: '8px',
@@ -163,8 +168,8 @@ export default function HomePage() {
                     انضم إلينا
                   </Button>
                 </Box>
-              </Grid>
-            </Grid>
+              </Box>
+            </Box>
           </Container>
         </Box>
 
@@ -192,23 +197,33 @@ export default function HomePage() {
           >
             إنجازاتنا بالأرقام
           </Typography>
-          <Grid
-            container
-            spacing={3}
+          <Box
             sx={{
+              display: 'flex',
               flexWrap: 'wrap',
+              gap: 3,
               justifyContent: 'center',
-              alignItems: 'center',
+              alignItems: 'stretch',
             }}
           >
             {statistics.map((stat, index) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+              <Box
+                key={index}
+                sx={{
+                  flex: {
+                    xs: '1 1 100%',
+                    sm: '1 1 calc(50% - 12px)',
+                    md: '1 1 calc(33.333% - 16px)',
+                    lg: '1 1 calc(auto - 18px)',
+                  },
+                  minWidth: '200px',
+                }}
+              >
                 <Card
                   sx={{
                     textAlign: 'center',
                     p: 3,
                     height: '100%',
-                    minWidth: '200px',
                     background: `linear-gradient(135deg, ${theme.palette.primary.main}15, ${theme.palette.secondary.main}15)`,
                     border: `1px solid ${theme.palette.primary.main}30`,
                     borderRadius: '20px',
@@ -256,9 +271,9 @@ export default function HomePage() {
                     {stat.label}
                   </Typography>
                 </Card>
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+          </Box>
         </Container>
 
         {/* Goals Section */}
@@ -277,74 +292,77 @@ export default function HomePage() {
             >
               أهدافنا الاستراتيجية
             </Typography>
-            <Grid container spacing={4} direction={'column'}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4,
+              }}
+            >
               {goals.map((goal, index) => (
-                <Grid item xs={12} md={6} key={index}>
-                  <Paper
+                <Paper
+                  key={index}
+                  sx={{
+                    p: 4,
+                    borderRadius: '20px',
+                    background: `linear-gradient(135deg, ${theme.palette.background.default}, ${theme.palette.background.paper})`,
+                    border: `1px solid ${theme.palette.divider}`,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: `0 15px 30px ${theme.palette.primary.main}15`,
+                    },
+                  }}
+                >
+                  <Box
                     sx={{
-                      p: 4,
-                      height: '100%',
-                      borderRadius: '20px',
-                      minWidth: '100%',
-                      background: `linear-gradient(135deg, ${theme.palette.background.default}, ${theme.palette.background.paper})`,
-                      border: `1px solid ${theme.palette.divider}`,
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        transform: 'translateY(-8px)',
-                        boxShadow: `0 15px 30px ${theme.palette.primary.main}15`,
-                      },
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: 2,
                     }}
                   >
                     <Box
                       sx={{
                         display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: 2,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 60,
+                        height: 60,
+                        borderRadius: '15px',
+                        background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                        color: '#FFFFFF',
+                        fontSize: '1.5rem',
+                        flexShrink: 0,
                       }}
                     >
-                      <Box
+                      {goal.icon}
+                    </Box>
+                    <Box>
+                      <Typography
+                        variant="h5"
+                        component="h3"
                         sx={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          width: 60,
-                          height: 60,
-                          borderRadius: '15px',
-                          background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                          color: '#FFFFFF',
-                          fontSize: '1.5rem',
-                          flexShrink: 0,
+                          fontWeight: 700,
+                          color: theme.palette.text.primary,
+                          mb: 2,
                         }}
                       >
-                        {goal.icon}
-                      </Box>
-                      <Box>
-                        <Typography
-                          variant="h5"
-                          component="h3"
-                          sx={{
-                            fontWeight: 700,
-                            color: theme.palette.text.primary,
-                            mb: 2,
-                          }}
-                        >
-                          {goal.title}
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            color: theme.palette.text.secondary,
-                            lineHeight: 1.6,
-                          }}
-                        >
-                          {goal.description}
-                        </Typography>
-                      </Box>
+                        {goal.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: theme.palette.text.secondary,
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {goal.description}
+                      </Typography>
                     </Box>
-                  </Paper>
-                </Grid>
+                  </Box>
+                </Paper>
               ))}
-            </Grid>
+            </Box>
           </Container>
         </Box>
 
@@ -363,8 +381,24 @@ export default function HomePage() {
           >
             تواصل معنا
           </Typography>
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} md={4}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 4,
+              justifyContent: 'center',
+              alignItems: 'stretch',
+            }}
+          >
+            <Box
+              sx={{
+                flex: {
+                  xs: '1 1 100%',
+                  md: '1 1 calc(33.333% - 21px)',
+                },
+                minWidth: '250px',
+              }}
+            >
               <Card
                 sx={{
                   textAlign: 'center',
@@ -402,8 +436,17 @@ export default function HomePage() {
                 </Typography>
                 <Typography variant="body1">+971 4 567 8901</Typography>
               </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
+            </Box>
+
+            <Box
+              sx={{
+                flex: {
+                  xs: '1 1 100%',
+                  md: '1 1 calc(33.333% - 21px)',
+                },
+                minWidth: '250px',
+              }}
+            >
               <Card
                 sx={{
                   textAlign: 'center',
@@ -441,8 +484,17 @@ export default function HomePage() {
                 </Typography>
                 <Typography variant="body1">media@gtma.org</Typography>
               </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
+            </Box>
+
+            <Box
+              sx={{
+                flex: {
+                  xs: '1 1 100%',
+                  md: '1 1 calc(33.333% - 21px)',
+                },
+                minWidth: '250px',
+              }}
+            >
               <Card
                 sx={{
                   textAlign: 'center',
@@ -482,8 +534,8 @@ export default function HomePage() {
                   دبي، دولة الإمارات العربية المتحدة
                 </Typography>
               </Card>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </Container>
       </Box>
     </>
