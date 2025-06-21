@@ -106,12 +106,12 @@ export default function HomePage() {
                       fontWeight: 700,
                       mb: 3,
                       textAlign: { xs: 'center', md: 'left' },
-                      fontSize: { xs: '2.0rem', md: '3.5rem', lg: '4.5rem' },
+                      fontSize: { xs: '2.0rem', md: '3.0rem', lg: '4.0rem' },
                       textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
                       lineHeight: 1.2,
                     }}
                   >
-                    جمعية الخليج للإعلام السياحي
+                    الجمعية الخليجية للإعلام السياحي
                   </Typography>
 
                   <Typography

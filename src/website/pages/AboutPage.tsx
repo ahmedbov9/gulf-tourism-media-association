@@ -190,7 +190,7 @@ export default function AboutPage() {
                             },
                           }}
                         >
-                          جمعية الخليج للإعلام
+                          الجمعية الخليجية
                         </Box>
                       </Typography>
                     </motion.div>
