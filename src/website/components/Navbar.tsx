@@ -31,13 +31,12 @@ const pages = [
   },
   {
     name: 'عن الجمعية',
-    path: '/about',
+    path: '/about-us  ',
   },
   {
     name: 'المركز الإعلامي',
     path: '/media-center',
     subItems: [
-      { name: 'نبذة عنا', path: '/about-us' },
       { name: 'أخبار الجمعية', path: '/association-news' },
       { name: 'أخبار السياحة الخليجية', path: '/gulf-tourism-news' },
     ],
@@ -46,8 +45,8 @@ const pages = [
     name: 'انضم إلينا',
     path: '/join-us',
     subItems: [
-      { name: 'العضوية', path: '/membership' },
-      { name: 'التطوع', path: '/volunteer' },
+      { name: 'فرص العمل', path: '/jobs' },
+      { name: 'فرص التطوع', path: '/volunteering' },
     ],
   },
   {
@@ -129,7 +128,7 @@ const Navbar = () => {
               textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
             }}
           >
-            <img src={logo} alt="logo" width={100} />
+            <img src={logo} alt="logo" width={150} />
           </Typography>
 
           {/* drawer icon */}
@@ -322,7 +321,7 @@ const Navbar = () => {
               textAlign: 'center',
             }}
           >
-            <img src={logo} alt="logo" width={100} />
+            <img src={logo} alt="logo" width={130} />
           </Typography>
 
           {/* Desktop nav links */}
