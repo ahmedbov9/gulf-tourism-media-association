@@ -138,7 +138,7 @@ export default function HomePage() {
                   >
                     <Button
                       component={Link}
-                      to="/about"
+                      to="/about-us"
                       size="large"
                       variant="contained"
                       sx={{
