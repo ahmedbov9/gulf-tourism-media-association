@@ -33,7 +33,7 @@ const lightTheme = createTheme({
       contrastText: '#FFFFFF',
     },
     background: {
-      default: '#d1d1d1', // Light blue-white background
+      default: '#f5f5f5', // Light blue-white background
       paper: '#FFFFFF',
     },
     text: {
